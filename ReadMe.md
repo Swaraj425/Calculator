@@ -31,7 +31,7 @@ This is a fully functional calculator built using the MERN stack with Tailwind C
 ### Backend Setup
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/calculator.git
+   git clone https://github.com/Swaraj425/Calculator.git
    ```
 2. Navigate to the backend directory:
    ```sh
