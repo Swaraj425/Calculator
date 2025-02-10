@@ -61,7 +61,7 @@ This is a fully functional calculator built using the MERN stack with Tailwind C
    ```
 
 ## Usage
-1. Open the application in your browser at `http://localhost:5174/`.
+1. Open the application in your browser at http://localhost:<your-port>/ (default is 5174 if using Vite).
 2. Use the on-screen buttons or your keyboard to perform calculations.
 3. Switch between **Standard** and **Scientific** modes as needed.
 4. Utilize the memory functions to store and retrieve values.
