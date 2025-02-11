@@ -67,8 +67,8 @@ const Calculator = () => {
                 ")": ")",
                 ".": ".",
                 "^": "^",
-                "%":"%",
-                "!":"!",
+                "%": "%",
+                "!": "!",
                 "1": "1",
                 "2": "2",
                 "3": "3",
@@ -83,8 +83,8 @@ const Calculator = () => {
                 "c": "cos",
                 "t": "tan",
                 "l": "log",
-                "e": "e", 
-                "p": "π", 
+                "e": "e",
+                "p": "π",
                 "n": "ln",
 
 
@@ -104,7 +104,7 @@ const Calculator = () => {
 
 
     const handleButtonClick = (value) => {
-        
+
         // Clear the expression and result
         if (value === "C") {
             setExpression("");
@@ -228,26 +228,26 @@ const Calculator = () => {
     const evaluateExpression = async () => {
         try {
             let formattedExpression = expression.replace(/×/g, "*"); // Convert '×' to '*'
-        
-            // Check for division by zero (including 1/0)
-        if (/\/0(\D|$)/.test(formattedExpression) || /1\/\(0\)/.test(formattedExpression)) {
-            setResult("Cannot divide by Zero");
-            setHistory([...history, { expression, result: "Cannot divide by Zero" }]); // Add to history
-            return;
-        }
 
-            console.log("🚀 Sending expression:", formattedExpression);
+            // Check for division by zero (including 1/0)
+            if (/\/0(\D|$)/.test(formattedExpression) || /1\/\(0\)/.test(formattedExpression)) {
+                setResult("Cannot divide by Zero");
+                setHistory([...history, { expression, result: "Cannot divide by Zero" }]); // Add to history
+                return;
+            }
+
+            console.log("Sending expression:", formattedExpression);
 
             const response = await axios.post("http://localhost:5000/api/calculate",
                 { expression: formattedExpression }, // Send formatted expression
                 { headers: { "Content-Type": "application/json" } }
             );
 
-            console.log("✅ Response from backend:", response.data);
+            console.log("Response from backend:", response.data);
             setResult(response.data.result);
             setHistory([...history, { expression, result: response.data.result }]);
         } catch (error) {
-            console.error("❌ Backend Error:", error.response?.data || error.message);
+            console.error("Backend Error:", error.response?.data || error.message);
             setResult("Error");
         }
     };
@@ -313,7 +313,7 @@ const Calculator = () => {
                         </div>
                     </div>
                 )}
-            
+
             </div>
 
 
