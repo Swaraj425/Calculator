@@ -5,11 +5,11 @@ const calculateExpression = (req, res) => {
     let { expression } = req.body;
 
     if (!expression) {
-      console.log("❌ No expression received!");
+      console.log("No expression received!");
       return res.status(400).json({ error: "No expression provided" });
     }
 
-    console.log("✅ Received Expression:", expression);
+    console.log("Received Expression:", expression);
 
     // Check for division by zero
     if (/\/\s*0(\D|$)/.test(expression)) {
@@ -17,10 +17,10 @@ const calculateExpression = (req, res) => {
       return res.json({ result: "Cannot divide by zero" });
     }
 
-    // Convert percentage expressions like 50%200 → (50/100)*200
+    // Convert percentage expressions
     expression = expression.replace(/(\d+(\.\d+)?)%(\d+(\.\d+)?)/g, "($1/100)*$3");
 
-    // Convert standalone percentages like 50% → (50/100)
+    // Convert standalone percentages
     expression = expression.replace(/(\d+(\.\d+)?)%/g, "($1/100)");
 
     // Convert degrees to radians for trigonometric functions
@@ -38,10 +38,10 @@ const calculateExpression = (req, res) => {
     // Round the result to 10 decimal places to avoid floating-point errors
     result = Number(result.toFixed(10));
 
-    console.log("✅ Calculation Successful:", result);
+    console.log("Calculation Successful:", result);
     res.json({ result });
   } catch (error) {
-    console.error("❌ Calculation Error:", error.message);
+    console.error("Calculation Error:", error.message);
     res
       .status(400)
       .json({ error: "Invalid Calculation", details: error.message });
