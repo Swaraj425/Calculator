@@ -79,13 +79,13 @@ const Calculator = () => {
                 "8": "8",
                 "9": "9",
                 "0": "0",
-                "s": "sin", // Sine
-                "c": "cos", // Cosine
-                "t": "tan", // Tangent
-                "l": "log", // Logarithm
-                "e": "e", // Euler's number
-                "p": "π", // Pi
-                "n": "ln", // Natural Logarithm
+                "s": "sin",
+                "c": "cos",
+                "t": "tan",
+                "l": "log",
+                "e": "e", 
+                "p": "π", 
+                "n": "ln",
 
 
 
@@ -104,67 +104,95 @@ const Calculator = () => {
 
 
     const handleButtonClick = (value) => {
+        
+        // Clear the expression and result
         if (value === "C") {
             setExpression("");
             setResult("");
             return;
         }
+
+        // Handle backspace
         if (value === "⌫") {
             setExpression(expression.slice(0, -1));
             return;
         }
+
+        // Evaluate the expression
         if (value === "=") {
             evaluateExpression();
             return;
         }
+
+        // Handle numbers and operators
         if (value === "1/x" && expression) {
             setExpression(`1/(${expression})`);
             return;
         }
+
+        // Handle Square, Factorial, Pi, e
         if (value === "x²") {
             setExpression(`(${expression})^2`);
             return;
         }
+
+        // Handle Square Root
         if (value === "√") {
             setExpression(`sqrt(${expression})`);
             return;
         }
+
+        // Handle exponentiation 
         if (value === "^") {
             setExpression(expression + "^");
             return;
         }
+
+        // Handle Factorial
         if (value === "!") {
             setExpression(`factorial(${expression})`);
             return;
         }
+
+        // Handle Pi
         if (value === "π") {
             setExpression(expression + "3.1415926535");
             return;
         }
+
+        // Handle e
         if (value === "e") {
             setExpression(expression + "2.7182818284");
             return;
         }
 
         // Memory Functions
+
+        // Handle Memory Addition
         if (value === "M+") {
             setMemory(memory + (parseFloat(result) || 0));
             return;
         }
+
+        // Handle Memory Subtraction 
         if (value === "M-") {
             setMemory(memory - (parseFloat(result) || 0));
             return;
         }
+
+        // Handle Memory Recall
         if (value === "MR") {
             setExpression(memory.toString());
             return;
         }
+
+        // Handle Memory Clear
         if (value === "MC") {
             setMemory(0);
             return;
         }
 
-        // Handling trigonometric functions
+        // Handling trigonometric functions (sin, cos & tan)
         if (["sin", "cos", "tan"].includes(value)) {
             setExpression(expression + `${value}(`);
             return;
