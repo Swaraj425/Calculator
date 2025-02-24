@@ -304,8 +304,8 @@ const Calculator = () => {
                                 <button
                                     key={btn}
                                     className={`p-4 text-xl font-bold rounded bg-gray-700 hover:bg-gray-600 active:bg-gray-800 transition-all 
-        ${btn === "C" || btn === "⌫" ? "bg-red-500 hover:bg-red-400" : ""} 
-        ${btn === "=" ? "bg-blue-500 hover:bg-blue-400 col-span-1" : ""}`}
+                                    ${btn === "C" || btn === "⌫" ? "bg-red-500 hover:bg-red-400" : ""} 
+                                    ${btn === "=" ? "bg-blue-500 hover:bg-blue-400 col-span-1" : ""}`}
                                     onClick={() => handleButtonClick(btn)}
                                 >
                                     {btn}

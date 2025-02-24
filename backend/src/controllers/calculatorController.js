@@ -1,6 +1,7 @@
 import { evaluate } from "mathjs";
+import Calculation from "../models/Calculation";
 
-const calculateExpression = (req, res) => {
+const calculateExpression = async (req, res) => {
   try {
     let { expression } = req.body;
 
@@ -35,10 +36,15 @@ const calculateExpression = (req, res) => {
     // Evaluate the expression
     let result = evaluate(expression);
 
+    
     // Round the result to 10 decimal places to avoid floating-point errors
     result = Number(result.toFixed(10));
 
+    await Calculation.save(result)
+
     console.log("Calculation Successful:", result);
+
+
     res.json({ result });
   } catch (error) {
     console.error("Calculation Error:", error.message);
