@@ -309,7 +309,7 @@ const Calculator = () => {
                                     onClick={() => handleButtonClick(btn)}
                                 >
                                     {btn}
-                                </button>
+                                </button>   
                             ))}
                         </div>
                     </div>
