@@ -1,12 +1,8 @@
 import { evaluate } from "mathjs";
-import Calculation from "../models/Calculation";
 
-const calculateExpression = async (req, res) => {
+const calculateExpression = (req, res) => {
   try {
     let { expression } = req.body;
-
-    const newCalculation = new Calculation({ expression })
-    await newCalculation.save()
 
     if (!expression) {
       console.log("No expression received!");
@@ -39,15 +35,10 @@ const calculateExpression = async (req, res) => {
     // Evaluate the expression
     let result = evaluate(expression);
 
-    
     // Round the result to 10 decimal places to avoid floating-point errors
     result = Number(result.toFixed(10));
 
-    await Calculation.save(result)
-
     console.log("Calculation Successful:", result);
-
-
     res.json({ result });
   } catch (error) {
     console.error("Calculation Error:", error.message);
