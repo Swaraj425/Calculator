@@ -1,5 +1,5 @@
 import { evaluate } from "mathjs";
-import Calculation from "../models/Calculation.js"; // Import the Calculation model
+// import Calculation from "../models/Calculation.js"; // Import the Calculation model
 
 const calculateExpression = async (req, res) => {
   try {
@@ -45,10 +45,11 @@ const calculateExpression = async (req, res) => {
     console.log("Calculation Successful:", result);
 
     // Save the calculation to the database
-    const newCalculation = new Calculation({ expression, result });
-    await newCalculation.save();
+    // const newCalculation = new Calculation({ expression, result });
+    // await newCalculation.save();
 
     res.json({ result });
+    
   } catch (error) {
     console.error("Calculation Error:", error.message);
     res
