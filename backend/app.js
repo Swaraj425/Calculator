@@ -9,7 +9,7 @@ connectDB();
 
 const app = express();
 app.use(cors());
-.use(express.json());
+app.use(express.json());
 
 app.use("/api", calculatorRoutes);
 
