@@ -11,7 +11,6 @@ const app = express();
 app.use(cors({
   origin: "https://calculator-frontend-woad.vercel.app",
   methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type"],
 }));
 .use(express.json());
 
