@@ -2,7 +2,7 @@
 import React from "react";
 import Calculator from "./components/Calculator";
 
-export const url = "https://calculator-backend-y026.onrender.com"
+export const url = "https://calculator-backend-alpha.vercel.app"
 
 function App() {
   return (
