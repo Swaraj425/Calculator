@@ -8,10 +8,7 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors({
-  origin: "https://calculator-frontend-woad.vercel.app",
-  methods: ["GET", "POST"],
-}));
+app.use(cors());
 .use(express.json());
 
 app.use("/api", calculatorRoutes);
