@@ -5,6 +5,9 @@ const calculateExpression = async (req, res) => {
   try {
     let { expression } = req.body;
 
+    const newCalculation = new Calculation({ expression })
+    await newCalculation.save()
+
     if (!expression) {
       console.log("No expression received!");
       return res.status(400).json({ error: "No expression provided" });
