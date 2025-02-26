@@ -238,7 +238,7 @@ const Calculator = () => {
 
             console.log("Sending expression:", formattedExpression);
 
-            const response = await axios.post(`https://calculator-backend-alpha.vercel.app/api/calculate`,
+            const response = await axios.post(`https://calculator-backend-psi.vercel.app/api/calculate`,
                 { expression: formattedExpression }, // Send formatted expression
                 { headers: { "Content-Type": "application/json" } }
             );
