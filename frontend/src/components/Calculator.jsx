@@ -4,6 +4,7 @@ import axios from "axios";
 import { FaBars } from "react-icons/fa";
 import { url } from "../App";
 
+
 const Calculator = () => {
     const [shownav, setShownav] = useState(false);
     const [expression, setExpression] = useState("");
@@ -239,7 +240,7 @@ const Calculator = () => {
 
             console.log("Sending expression:", formattedExpression);
 
-            const response = await axios.post(`https://calculator-backend-alpha.vercel.app/api/calculate`,
+            const response = await axios.post(`${url}/api/calculate`,
                 { expression: formattedExpression }, // Send formatted expression
                 { headers: { "Content-Type": "application/json" } }
             );
