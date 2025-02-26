@@ -10,7 +10,7 @@ connectDB();
 const app = express();
 app.use(cors(
     {
-        origin: [""],
+        origin: ["https://calculator-frontend-nine.vercel.app"],
         methods: ["GET", "POST"], 
         credentials: true
     }
