@@ -239,7 +239,7 @@ const Calculator = () => {
 
             console.log("Sending expression:", formattedExpression);
 
-            const response = await axios.post(`${url}/api/calculate`,
+            const response = await axios.post(`https://calculator-backend-y026.onrender.com/api/calculate`,
                 { expression: formattedExpression }, // Send formatted expression
                 { headers: { "Content-Type": "application/json" } }
             );
