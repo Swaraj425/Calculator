@@ -4,6 +4,7 @@
 This is a fully functional calculator built using the MERN stack with Tailwind CSS. It supports basic arithmetic operations as well as advanced scientific functions. The calculator is designed to be completely responsive, ensuring usability across different screen sizes.
 
 ## Features
+
 - **Basic Arithmetic Operations**: Addition, subtraction, multiplication, and division.
 - **Square Root Calculation**: Quickly find the square root of any number.
 - **Percentage Calculations**: Compute percentages easily.

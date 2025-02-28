@@ -6,7 +6,7 @@ export const url = "https://calculator-backend-psi.vercel.app"
 
 function App() {
   return (
-    <div className="flex justify-center items-center h-fit bg-gray-900">
+    <div className="flex justify-center items-center h-screen overflow-hidden bg-gray-900">
       <Calculator />
     </div>
   );
